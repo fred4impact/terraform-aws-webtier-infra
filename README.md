@@ -34,3 +34,42 @@ The infrastructure is deployed in **AWS us-east-1 across two availability zones*
 # Infrastructure Diagram
 
 Architecture follows this logical structure:
+
+# to use these modules 
+- Create a folder inside the env e.g stage 
+- create a main.tf and specify the infra to provision
+- create a dev.tfvars and add all teh variables to be used for the infra per the enviroments 
+
+```yaml
+aws_region = "us-east-1" # Specify your region
+
+vpc_cidr = "10.0.0.0/16" # Specifify your vpc cidr
+
+azs = [
+  "us-east-1a",
+  "us-east-1b"
+]
+
+public_subnets = [
+  "10.0.0.0/24",
+  "10.0.1.0/24"
+]
+
+app_subnets = [
+  "10.0.2.0/24",
+  "10.0.3.0/24"
+]
+
+db_subnets = [
+  "10.0.4.0/24",
+  "10.0.5.0/24"
+]
+
+code_bucket     = "bilarn-code-bucket"
+flowlogs_bucket = "bilarn-flowlogs-bucket"
+
+db_name     = "db_name_"
+db_user     = "db_user-name"
+db_password = "db_password"
+
+```
